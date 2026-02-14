@@ -1,0 +1,19 @@
+/* Ottimizzazioni per Mobile */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        /* Testo più piccolo su cellulare */
+    }
+
+    .container {
+        width: 90%;
+        /* Margini laterali su schermi piccoli */
+        padding: 1.5rem;
+    }
+
+    button {
+        padding: 12px 25px;
+        /* Bottoni leggermente più compatti */
+        font-size: 1rem;
+    }
+}

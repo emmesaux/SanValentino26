@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffdde1;
+    background-image: linear-gradient(to right, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    /* Importante per non far apparire barre di scorrimento quando i bottoni si muovono */
+    text-align: center;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
+    transition: opacity 0.5s;
+}
+
+h1 {
+    color: #ff4d6d;
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    font-weight: 600;
+}
+
+#yesBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#yesBtn:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+#noBtn {
+    background-color: #ff4d6d;
+    color: white;
+    position: relative;
+    /* Necessario per lo spostamento */
+}
+
+/* Classe per riempire lo schermo di bottoni SI */
+.fill-screen-btn {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 5;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Stili per la celebrazione finale */
+.hidden {
+    display: none !important;
+}
+
+#celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffe6eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.cat-gif {
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: auto;
+}
+
+/* Effetto party */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    animation: fall linear forwards;
+}

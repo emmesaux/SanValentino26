@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per il mio amore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-fixes.css">
+    <link rel="stylesheet" href="mobile.css">
+    <!-- <link rel="stylesheet" href="floating-cats.css"> Rimosso perché gestito da JS/style-fixes -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Maaa.... tu mi amiiiiii??? 💖</h1>
+        <div class="buttons">
+            <button id="yesBtn">Sì 😍</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <!-- Contenitore per i gattini e la festa finale -->
+    <div id="celebration" class="hidden">
+        <h1 id="finalMessage">Sapevo che mi amavi! Happy Happy Happy! 🐱</h1>
+        <div id="cats-container"></div>
+    </div>
+
+    <!-- Audio elements (userò dei placeholder, dovrai magari aggiornare i link se smettono di funzionare o usare file locali) -->
+    <!-- Chipi Chipi Chapa Chapa -->
+    <audio id="audio1" loop>
+        <source src="https://www.myinstants.com/media/sounds/chipi-chipi-chaps-chapa.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Happy Happy Happy Cat -->
+    <audio id="audio2" loop>
+        <source src="https://www.myinstants.com/media/sounds/happy-happy-happy-cat.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

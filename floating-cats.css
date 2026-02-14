@@ -1,0 +1,8 @@
+.background-cat {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    pointer-events: none;
+    width: 80px;
+    height: auto;
+}

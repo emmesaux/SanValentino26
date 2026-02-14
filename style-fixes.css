@@ -1,0 +1,11 @@
+/* Aggiungiamo z-index al contenuto principale per essere sicuri che stia sopra i gatti di sfondo */
+#finalMessage {
+    z-index: 10;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+#cats-container {
+    z-index: 10;
+    position: relative;
+}
