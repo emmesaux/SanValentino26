@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per la mia Piccinina</title>
+    <!-- Riutilizziamo lo stile di base -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Sfondo grigio/plumbeo per riflettere il dispiacere */
+        body {
+            /* Un gradiente più cupo: grigio scuro che sfuma verso un grigio chiaro piovoso */
+            background-image: linear-gradient(to top, #2c3e50 0%, #bdc3c7 100%);
+        }
+
+        /* Titolo meno festoso, più sobrio */
+        h1 {
+            color: #2c3e50 !important;
+            /* Grigio scuro invece del rosa */
+            text-shadow: none !important;
+        }
+
+        .message-box {
+            max-width: 600px;
+            text-align: center;
+            width: 90%;
+            /* Per mobile: evita che tocchi i bordi */
+            padding: 20px;
+            /* Spazio interno ridotto per schermi piccoli */
+        }
+
+        .sad-cat-img {
+            max-width: 100%;
+            /* Si adatta alla larghezza del contenitore */
+            height: auto;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Ottimizzazione pulsanti per mobile */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permette ai bottoni di andare a capo se non c'è spazio */
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .heart-btn {
+            background-color: #c0392b;
+            /* Rosso molto più spento/serio */
+            color: white;
+            /* Rimuoviamo il margin-top qui perché gestito dal flex gap */
+            margin: 0;
+            flex: 1 1 auto;
+            /* Si espandono se serve, ma non troppo */
+            min-width: 140px;
+            /* Larghezza minima per leggibilità */
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.05);
+            background-color: #a93226;
+            /* Ancora più scuro all'hover */
+        }
+
+        /* Ingrandiamo i gatti della festa finale */
+        .cat-gif {
+            width: 350px !important;
+            /* Sovrascrive style.css */
+            max-width: 90vw;
+            /* Per schermi piccoli */
+            margin: 10px auto !important;
+            /* Centra le immagini */
+            display: block;
+            position: relative;
+            z-index: 50 !important;
+            /* Forza lo stare sopra */
+            border: 3px solid white;
+            /* Un bordino per farle risaltare sullo sfondo */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #cats-container {
+            display: flex;
+            flex-direction: column;
+            /* Impilati verticalmente su mobile è meglio */
+            align-items: center;
+            width: 100%;
+            height: auto;
+            overflow-y: visible;
+            /* Lasciamo che sia il padre a scrollare se serve */
+            padding-bottom: 80px;
+            /* Spazio extra in fondo */
+            z-index: 50;
+            margin-top: 20px;
+        }
+
+        /* Override per la celebrazione */
+        #celebration:not(.hidden) {
+            display: block !important;
+            /* Non flex, per gestire meglio lo scroll */
+            overflow-y: auto !important;
+            /* Abilita lo scroll verticale */
+            padding-top: 60px;
+            /* Spazio per non coprire il titolo se fisso, o spazio dal bordo */
+            text-align: center;
+        }
+
+        #finalMessage {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 60;
+            /* Sopra a tutto */
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+            /* Leggibilità */
+        }
+
+        /* Regole specifiche per schermi piccoli */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+                /* Titolo più piccolo */
+            }
+
+            p {
+                font-size: 1rem;
+                /* Testo leggermente più piccolo */
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+                /* Meno padding laterale */
+            }
+
+            /* I gatti finali su mobile saranno un po' più piccoli per vederne di più o grandi a tutto schermo */
+            .cat-gif {
+                width: 90% !important;
+                /* Quasi tutta la larghezza */
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container message-box">
+        <h1>Mi dispiace Piccinina... 💔</h1>
+
+        <!-- Placeholder per una GIF di gattino triste o che chiede scusa -->
+
+        <p>
+            Albuccina, oggi compi 20 anni, non faccio la battuta dei 15 perché sono stato un coglioncino. Non
+            volontariamente ti ho fatto prendere molta collora in una giornata così importante. Ti prometto con tutto me
+            stesso che smusserò gli angoli dei miei errori se dovessi perdonarmi. Non finirò mai di scusarmi, e cercherò
+            di imparare sempre dai miei errori.
+        </p>
+
+        <p>
+            Tengo a te più di ogni altra cosa. Spero tu possa perdonarmi. 🥺
+        </p>
+
+        <div class="buttons">
+            <!-- Un semplice tasto per tornare alla home o per "fare pace" -->
+            <button class="heart-btn" onclick="farePace()">Ti perdono ❤️</button>
+            <button class="heart-btn" style="background-color: #888;" onclick="nonAncora()">Non ancora... 😢</button>
+        </div>
+    </div>
+
+    <div id="celebration" class="hidden">
+        <h1 id="finalMessage">Sapevo che mi Melaluy! Happy Happy Happy! 🐱</h1>
+        <div id="cats-container"></div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="audio2" loop>
+        <source src="https://www.myinstants.com/media/sounds/happy-happy-happy-cat.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function farePace() {
+            if (confirm("Sei sicura sicura di volermi perdonare? 🥺")) {
+                alert("Grazie biuccita! vale tanto per me. Ti amo tantissimo all'infinito chiuso 💖");
+
+                // Nascondi il contenitore delle scuse
+                document.querySelector('.message-box').style.display = 'none';
+
+                // Aspetta 3 secondi e poi fai partire la festa
+                setTimeout(startParty, 3000);
+            }
+        }
+
+        function nonAncora() {
+            alert("Capisco... prenditi il tempo che ti serve, quando vuoi, io aspetterò qui buono buono finché non sarai pronta 😿");
+            // Opzionale: cambia la gif con una ancora più triste
+            const img = document.querySelector('.sad-cat-img');
+            img.src = "https://media.tenor.com/p0u-w_1k_R8AAAAC/cat-sad.gif"; // Altra gif triste
+        }
+
+        function startParty() {
+            const celebration = document.getElementById('celebration');
+            const audio2 = document.getElementById('audio2');
+
+            celebration.classList.remove('hidden');
+
+            // Fai partire l'audio
+            audio2.play().catch(e => console.log("Audio play error:", e));
+
+            // Mostra i gatti (preso da script.js)
+            const catsContainer = document.getElementById('cats-container');
+            const catImages = [
+                "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDJjZDI1Mm00OWV5dmh5YnZ4YnZ4YnZ4YnZ4YnZ4YnZ4YnZ4biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif",
+                "https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif",
+                "https://media1.tenor.com/m/m-XVTK1iZ3AAAAAC/cat-cat-jumping.gif"
+            ];
+
+            // Pulisce contenitore
+            catsContainer.innerHTML = '';
+
+            // Aggiungi immagini principali
+            catImages.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.classList.add('cat-gif');
+                // Fallback nel caso un'immagine non carichi
+                img.onerror = function () {
+                    console.log("Errore caricamento immagine:", src);
+                    this.src = "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif";
+                };
+
+                // Le immagini principali vanno nel container e NON devono avere posizioni random
+                catsContainer.appendChild(img);
+            });
+
+            spawnBackgroundCats();
+        }
+
+        function spawnBackgroundCats() {
+            const catUrl = "https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif";
+            const numberOfCats = 50;
+            const celebration = document.getElementById('celebration');
+
+            for (let i = 0; i < numberOfCats; i++) {
+                const img = document.createElement('img');
+                img.src = catUrl;
+                // Stile inline per brevità
+                img.style.position = 'absolute';
+                img.style.left = Math.random() * window.innerWidth + 'px';
+                img.style.top = Math.random() * window.innerHeight + 'px';
+                img.style.width = ((Math.random() * 100) + 50) + 'px';
+                img.style.zIndex = '-1';
+
+                celebration.appendChild(img);
+            }
+        }
+    </script>
+</body>
+
+</html>
